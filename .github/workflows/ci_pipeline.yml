@@ -1,0 +1,27 @@
+name: ci pipeline 
+on: 
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  job1:
+    name: test job
+    runs-on: ubuntu-latest
+    steps:
+    - name: step one
+      uses: actions/checkout@v2
+    - name: step two, testing
+      run: npm test
+  job2: 
+    name: container build job
+    needs: [job1]
+    runs-on: ubuntu-latest
+    steps:
+    - name: Step one 
+      uses: actions/checkout@v2
+    - name: Step two, building
+      run: docker build -t hello_world
+
