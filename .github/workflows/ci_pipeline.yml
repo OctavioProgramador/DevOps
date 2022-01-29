@@ -15,8 +15,8 @@ jobs:
       uses: actions/checkout@v2
     - name: step two, testing
       run: |
-        npm install react-scripts
         cd capstone_project/hello-world
+        npm install
         npm test
   job2: 
     name: container build job
