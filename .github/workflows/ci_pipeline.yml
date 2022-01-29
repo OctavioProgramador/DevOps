@@ -15,8 +15,7 @@ jobs:
       uses: actions/checkout@v2
     - name: step two, testing
       run: |
-        ls
-        cd capstone_project/hello_world
+        cd capstone_project/hello-world
         npm test
   job2: 
     name: container build job
@@ -26,5 +25,5 @@ jobs:
     - name: Step one 
       uses: actions/checkout@v2
     - name: Step two, building
-      run: docker build -t hello_world capstone_project/hello_world/.
+      run: docker build -t hello_world capstone_project/hello-world/
 
