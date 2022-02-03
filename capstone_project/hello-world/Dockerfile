@@ -10,4 +10,16 @@ FROM nginx AS final
 
 WORKDIR /usr/share/nginx/html
 
+RUN apt-get update -y \
+    && apt-get upgrade -y \
+    && apt-get install -y \
+    ssh \
+    sshpass \
+    sudo \
+    software-properties-common \
+    gpg
+
+RUN add-apt-repository --yes ppa:ansible/ansible \
+    && apt-get install -y ansible
+
 COPY --from=build /tmp/build/build .
